@@ -38,8 +38,8 @@
     
     
     <title>
-          
-            人生苦短 | 来日方长
+        
+            tags | 人生苦短 | 来日方长
         
     </title>
     
@@ -206,48 +206,86 @@
   </v-col>
 </v-row>
 
-                            
-<v-card class="elevation-2 index-card">
-    <v-timeline class="timeline" dense>
+                            <v-card class="elevation-2 post-card">
+    <div class="post-header">
+        <a class="post-header-title font-weight-medium" href="/tags/index.html">标签</a>
+    </div>
+    <div class="post-content">
         
-            
-            
-                <v-timeline-item class="timeline-header" color="secondary lighten-2">
-                    <a href="/archives/2020" class="timeline-title">2020</a>
-                    <span class="timeline-subtitle">归档</span>
-                </v-timeline-item>
+            <div class="page-describe">
+                counter.tags
+            </div>
+            <div class="tags-contain">
                 
-            
-            <v-timeline-item fill-dot small color="secondary lighten-2">
-                <div class="timeline-item-post d-none d-md-block">
-                    <span class="timeline-item-time">2020.07.29</span>
-                    <a href="/2020/07/29/GCC%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" class="timeline-item-title">GCC简明教程-1(概述与GCC安装)</a>
-                </div>
-                <div class="timeline-item-post-mobile d-block d-md-none">
-                    <span class="timeline-item-time">2020.07.29</span><br>
-                    <a href="/2020/07/29/GCC%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" class="timeline-item-title">GCC简明教程-1(概述与GCC安装)</a>
-                </div>
-                <v-divider></v-divider>
-            </v-timeline-item>
+                    <v-badge :value="tagHover" transition="slide-x-transition" inline content="1" >
+                        <v-hover v-model="tagHover">
+                            <v-chip color="secondary" class="tags-chip font-weight-medium">
+                                <a href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
+                            </v-chip>
+                        </v-hover>
+                    </v-badge>
+                
+                    <v-badge :value="tagHover" transition="slide-x-transition" inline content="1" >
+                        <v-hover v-model="tagHover">
+                            <v-chip color="secondary" class="tags-chip font-weight-medium">
+                                <a href="/tags/C/">C++</a>
+                            </v-chip>
+                        </v-hover>
+                    </v-badge>
+                
+                    <v-badge :value="tagHover" transition="slide-x-transition" inline content="1" >
+                        <v-hover v-model="tagHover">
+                            <v-chip color="secondary" class="tags-chip font-weight-medium">
+                                <a href="/tags/C/">C</a>
+                            </v-chip>
+                        </v-hover>
+                    </v-badge>
+                
+                    <v-badge :value="tagHover" transition="slide-x-transition" inline content="1" >
+                        <v-hover v-model="tagHover">
+                            <v-chip color="secondary" class="tags-chip font-weight-medium">
+                                <a href="/tags/GNU/">GNU</a>
+                            </v-chip>
+                        </v-hover>
+                    </v-badge>
+                
+                    <v-badge :value="tagHover" transition="slide-x-transition" inline content="1" >
+                        <v-hover v-model="tagHover">
+                            <v-chip color="secondary" class="tags-chip font-weight-medium">
+                                <a href="/tags/GCC/">GCC</a>
+                            </v-chip>
+                        </v-hover>
+                    </v-badge>
+                
+                    <v-badge :value="tagHover" transition="slide-x-transition" inline content="1" >
+                        <v-hover v-model="tagHover">
+                            <v-chip color="secondary" class="tags-chip font-weight-medium">
+                                <a href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a>
+                            </v-chip>
+                        </v-hover>
+                    </v-badge>
+                
+                    <v-badge :value="tagHover" transition="slide-x-transition" inline content="1" >
+                        <v-hover v-model="tagHover">
+                            <v-chip color="secondary" class="tags-chip font-weight-medium">
+                                <a href="/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+                            </v-chip>
+                        </v-hover>
+                    </v-badge>
+                
+                    <v-badge :value="tagHover" transition="slide-x-transition" inline content="1" >
+                        <v-hover v-model="tagHover">
+                            <v-chip color="secondary" class="tags-chip font-weight-medium">
+                                <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+                            </v-chip>
+                        </v-hover>
+                    </v-badge>
+                
+            </div>
         
-            
-            
-            <v-timeline-item fill-dot small color="secondary lighten-2">
-                <div class="timeline-item-post d-none d-md-block">
-                    <span class="timeline-item-time">2020.07.28</span>
-                    <a href="/2020/07/28/hello-world/" class="timeline-item-title">Hello World</a>
-                </div>
-                <div class="timeline-item-post-mobile d-block d-md-none">
-                    <span class="timeline-item-time">2020.07.28</span><br>
-                    <a href="/2020/07/28/hello-world/" class="timeline-item-title">Hello World</a>
-                </div>
-                <v-divider></v-divider>
-            </v-timeline-item>
-        
-    </v-timeline>
+    </div>
 </v-card>
-
-         
+        
                             <div id="mobile-footer" class="d-block d-md-none">
                                 <v-divider></v-divider>
                                 <div id="mobile-footer-content">
