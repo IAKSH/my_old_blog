@@ -38,8 +38,8 @@
     
     
     <title>
-        
-            GCC简明教程-1(概述与GCC安装) | 人生苦短 | 来日方长
+          
+            人生苦短 | 来日方长
         
     </title>
     
@@ -94,12 +94,33 @@
     </v-list>
     <v-divider></v-divider>
     
-        <div class="post-toc">
-            <a href="/2020/07/29/GCC%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/" class="toc-header">文章目录</a>
-            <div class="toc-content">
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于这篇教程"><span class="toc-number">1.0.1.</span> <span class="toc-text">关于这篇教程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是GNU-GCC"><span class="toc-number">1.0.2.</span> <span class="toc-text">什么是GNU&#x2F;GCC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#现在的GCC"><span class="toc-number">1.0.3.</span> <span class="toc-text">现在的GCC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不同系统下的GNU-GCC"><span class="toc-number">1.0.4.</span> <span class="toc-text">不同系统下的GNU&#x2F;GCC</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#把GCC搬进电脑"><span class="toc-number">2.</span> <span class="toc-text">把GCC搬进电脑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux"><span class="toc-number">2.1.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows"><span class="toc-number">2.2.</span> <span class="toc-text">Windows</span></a></li></ol></li></ol>
-            </div>
-        </div>
+        <v-list id="sub-menu" class="font-weight-medium" dense>
+            
+                
+                    <v-list-item href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" link>
+                        <v-badge :value="menuHover" transition="slide-y-transition" inline content="1" >
+                            <v-hover v-model="menuHover">
+                                <v-list-item-content>
+                                    <span>程序设计</span>                              
+                                </v-list-item-content>                           
+                            </v-hover>
+                        </v-badge>
+                    </v-list-item>
+                
+            
+                
+                    <v-list-item href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" link>
+                        <v-badge :value="menuHover" transition="slide-y-transition" inline content="1" >
+                            <v-hover v-model="menuHover">
+                                <v-list-item-content>
+                                    <span>碎碎念</span>                              
+                                </v-list-item-content>                           
+                            </v-hover>
+                        </v-badge>
+                    </v-list-item>
+                
+            
+        </v-list>    
     
 
     <div id="footer">
@@ -185,104 +206,29 @@
   </v-col>
 </v-row>
 
-                            <v-card class="elevation-2 post-card">
-    
-    
-        <div class="post-header">
-  <a class="post-header-title font-weight-medium" href="/2020/07/29/GCC%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/">GCC简明教程-1(概述与GCC安装)</a>
-  <div class="post-header-meta">   
-    <span>
-      <v-icon color="">event</v-icon>
-      发布于:&nbsp;2020-07-29
-    </span>
-    <span>
-      <v-icon color="">event_available</v-icon>
-      更新于:&nbsp;2020-07-29
-    </span>
-    <span>
-      <v-icon color="">folder</v-icon>
-      分类于:&nbsp;<a class="category-link" href="/categories/C/">C++</a>
-    </span>
-    
-    <span>
-      <v-icon color="">visibility</v-icon>
-      阅读次数:&nbsp;<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
-    </span>
-    
-  </div>
-</div>
-
-    
-    
-    
-    
-    <div class="post-content">
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><hr>
-<h3 id="关于这篇教程"><a href="#关于这篇教程" class="headerlink" title="关于这篇教程"></a>关于这篇教程</h3><blockquote>
-<p>这是一个对GNU/GCC(与G++)套件的简单介绍<br>在阅读本教程之前，你需要对C++语法与命令行操作有一个基本的认识。<br>你可以点击 <a href="https://www.runoob.com/cplusplus/cpp-tutorial.html" target="_blank" rel="noopener">这里(菜鸟教程)</a> 来快速入门。</p>
-</blockquote>
-<br>
-<br>
-<br>
-
-<h3 id="什么是GNU-GCC"><a href="#什么是GNU-GCC" class="headerlink" title="什么是GNU/GCC"></a>什么是GNU/GCC</h3><blockquote>
-<p>GNU/GCC是一款 <strong>开源</strong> 的多语言编译器，属于<a href="https://baike.baidu.com/item/GNU%E8%AE%A1%E5%88%92" target="_blank" rel="noopener">GNU计划</a><br>她支持C，C++，Objective-C，Java等语言的编译。且能够在Linux，Windows，Unix，MacOS，Android等系统上运行。</p>
-</blockquote>
-<br>
-<br>
-<br>
-
-<h3 id="现在的GCC"><a href="#现在的GCC" class="headerlink" title="现在的GCC"></a>现在的GCC</h3><blockquote>
-<p>不得不承认，2020年的今天，Clang，MSVC等编译器渐渐取代了GCC的位置。<br>但GCC基于GPL协议发布，拥有比MSVC更高的自由度与跨平台性。<br>同时，对于新手入门，GCC依然是首选。</p>
-</blockquote>
-<br>
-<br>
-<br>
-
-<h3 id="不同系统下的GNU-GCC"><a href="#不同系统下的GNU-GCC" class="headerlink" title="不同系统下的GNU/GCC"></a>不同系统下的GNU/GCC</h3><blockquote>
-<p>在Linux系统下，可以使用原生GCC。<br>在Window系统下，可以使用<a href="https://baike.baidu.com/item/mingw" target="_blank" rel="noopener">MinGW</a>来构建GCC环境。</p>
-</blockquote>
-<hr>
-<br>
-<br>
-<br>
-
-<h1 id="把GCC搬进电脑"><a href="#把GCC搬进电脑" class="headerlink" title="把GCC搬进电脑"></a>把GCC搬进电脑</h1><p>“工欲善其事，必先利其器。”</p>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><blockquote>
-<p>在Ubuntu等Linux发行版上，GCC已预装于系统中。<br>在终端中输入以下命令验证是否拥有GCC<br><code>$ gcc -v</code></p>
-</blockquote>
-<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><blockquote>
-<p>在Windows系统下，使用MinGW（Minimalist GNU for Windows）搭建GCC环境。<br>你可以在<a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">这里</a>下载MinGW</p>
-</blockquote>
-<blockquote>
-<p>在CMD中使用以下命令以验证安装<br><code>gcc -v</code></p>
-</blockquote>
-
-    </div>
-    <!--文末结束语-->
-    
-        <div style="text-align:center;color: #ccc;font-size:24px;"> --- The End --- </div>
-    
-    <!--页脚广告-->
-    
-    <v-divider></v-divider>
-    
-    <div class="post-nav">             
+                            <v-card class="elevation-2 index-card">
+    <v-timeline class="timeline" dense>
+        <v-timeline-item class="timeline-header" color="secondary lighten-2">
+            <span class="timeline-title">程序设计</span>
+            <span class="timeline-subtitle">分类</span>
+        </v-timeline-item>
         
-            <v-btn text disabled></v-btn>
+            <v-timeline-item fill-dot small color="secondary lighten-2">
+                <div class="timeline-item-post d-none d-md-block">
+                    <span class="timeline-item-time">2020.07.29</span>
+                    <a href="/2020/07/29/C-OpenGL-1/" class="timeline-item-title">C++/OpenGL(1)</a>
+                </div>
+                <div class="timeline-item-post-mobile d-block d-md-none">
+                    <span class="timeline-item-time">2020.07.29</span><br>
+                    <a href="/2020/07/29/C-OpenGL-1/" class="timeline-item-title">C++/OpenGL(1)</a>
+                </div>
+                <v-divider></v-divider>
+            </v-timeline-item>
         
-          
-            <v-btn text class="float-right font-weight-bold" href="/2020/07/28/hello-world/">      
-                Hello World
-                <v-icon>chevron_right</v-icon>
-            </v-btn>
-        
-    </div>
+    </v-timeline>
 </v-card>
 
-
-
-        
+         
                             <div id="mobile-footer" class="d-block d-md-none">
                                 <v-divider></v-divider>
                                 <div id="mobile-footer-content">
@@ -309,12 +255,6 @@
 
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({
-        startOnLoad: true,
-        theme: "default"
-    });</script>
 
 
 

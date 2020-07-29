@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="shortcut icon" href="https://avatars0.githubusercontent.com/u/59336306?s=460&amp;u=d08487e08ef02fa66f33918964f57442c10af7a3&amp;v=4">
+    
+     
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.2.30/dist/vuetify.min.css" rel="stylesheet">
+    
+<link rel="stylesheet" href="/css/main.css">
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+              
+    
+    
+    
+    
+    
+    <title>
+        
+            C++/OpenGL(1) | 人生苦短 | 来日方长
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div id="app">
+        <v-app>
+            <v-content id="page">
+                <v-container fluid>
+                    <v-row>
+                        <v-col cols="2" class="d-none d-md-block">
+                            <div id="sidebar" class="float-right">
+    <a href="/" rel="home">
+        <v-avatar size=96>
+            <img id="logo" src="https://avatars0.githubusercontent.com/u/59336306?s=460&amp;u=d08487e08ef02fa66f33918964f57442c10af7a3&amp;v=4">     
+        </v-avatar> 
+    </a>
+    <v-divider></v-divider>
+    <div class="mini-menu">
+        <v-btn icon href="/">
+            <v-icon>home</v-icon>
+        </v-btn>
+        <v-btn icon href="/categories/">
+            <v-icon>folder</v-icon>
+        </v-btn>
+        <v-btn icon href="/tags/">
+            <v-icon>bookmark</v-icon>
+        </v-btn>
+        <v-btn icon @click="SetNightMode">
+            <v-icon>{{ nightMode }}</v-icon>
+        </v-btn>
+    </div>
+    <v-list id="main-menu" class="font-weight-bold" flat>
+        
+            
+            <v-list-item href="/archives/" link>
+            <v-list-item-icon><v-icon>archive</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                归档
+            </v-list-item-content>
+            </v-list-item>
+        
+            
+            <v-list-item href="/about/" link>
+            <v-list-item-icon><v-icon>account_circle</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                关于
+            </v-list-item-content>
+            </v-list-item>
+        
+    </v-list>
+    <v-divider></v-divider>
+    
+        <div class="post-toc">
+            <a href="/2020/07/29/C-OpenGL-1/" class="toc-header">文章目录</a>
+            <div class="toc-content">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#对OpenGL的一些说明"><span class="toc-number">2.</span> <span class="toc-text">对OpenGL的一些说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#准备你的OpenGL之旅"><span class="toc-number">3.</span> <span class="toc-text">准备你的OpenGL之旅</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#freeglut-amp-glew"><span class="toc-number">3.1.</span> <span class="toc-text">freeglut &amp; glew</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装freeglut"><span class="toc-number">3.2.</span> <span class="toc-text">安装freeglut</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装glew"><span class="toc-number">3.3.</span> <span class="toc-text">安装glew</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#摆脱黑框，拥抱更耗能的黑框"><span class="toc-number">4.</span> <span class="toc-text">摆脱黑框，拥抱更耗能的黑框</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译"><span class="toc-number">4.1.</span> <span class="toc-text">编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整代码"><span class="toc-number">4.2.</span> <span class="toc-text">完整代码</span></a></li></ol></li></ol>
+            </div>
+        </div>
+    
+
+    <div id="footer">
+        <div class="footer-social">
+            
+                
+                <v-btn icon href="mailto:021askmenot@gmail.com" target="_blank">
+                    <v-icon>fas fa-envelope</v-icon>
+                </v-btn>
+            
+                
+                <v-btn icon href="https://github.com/zraskmenot" target="_blank">
+                    <v-icon>fab fa-github</v-icon>
+                </v-btn>
+            
+                
+                <v-btn icon href="https://steamcommunity.com/id/i_love_404" target="_blank">
+                    <v-icon>fab fa-steam</v-icon>
+                </v-btn>
+            
+        </div>
+        <v-divider></v-divider>
+        <div class="footer-content">
+            
+                <span id="busuanzi_container_site_uv" style="display: none;"> 
+                    总访客量 <span id="busuanzi_value_site_uv"></span>
+                </span>
+                <br>
+            
+            <span>Theme: <a href="https://github.com/kb1000fx/hexo-theme-insulin" target="_blank" rel="noopener">Insulin</a></span><br>
+            <span>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></span><br>
+            <span>
+                <span>@</span> 2020 - 2020 
+                ASKmenot
+            </span>
+        </div>
+    </div>
+</div>
+
+                        </v-col>
+                        <v-col cols="12" md="10">
+                            <v-row>
+  <v-col cols="12" md="8" align-self="end">
+    <div id="site-header">
+      <div id="site-title">
+        <a href="/" rel="home">人生苦短 | 来日方长</a>
+      </div>
+      <div id="site-description"></div>
+      <div id="mobile-menu" class="d-block d-md-none">
+        <v-text-field label="Search" data-src="search.xml" v-model="searchHeaderValue" prepend-inner-icon="search" clearable clear-icon="clear" @keydown.enter="EnterSearch(searchHeaderValue,false)"></v-text-field>
+        <div class="mobile-mini-menu">
+          <v-btn icon href="/">
+              <v-icon>home</v-icon>
+          </v-btn>
+          <v-btn icon href="/categories/">
+              <v-icon>folder</v-icon>
+          </v-btn>
+          <v-btn icon href="/tags/">
+              <v-icon>bookmark</v-icon>
+          </v-btn>
+          <v-btn icon @click="SetNightMode">
+              <v-icon>{{ nightMode }}</v-icon>
+          </v-btn>
+          
+            
+            <v-btn icon href="/archives/">
+              <v-icon>archive</v-icon>
+            </v-btn>
+          
+            
+            <v-btn icon href="/about/">
+              <v-icon>account_circle</v-icon>
+            </v-btn>
+          
+        </div>
+      </div>    
+    </div>
+  </v-col>  
+  <v-col cols="4" align-self="end" class="d-none d-md-block">
+    <v-col align-self="end">
+      <v-text-field label="Search" data-src="search.xml" v-model="searchHeaderValue" prepend-icon="search" clearable clear-icon="clear" @keydown.enter="EnterSearch(searchHeaderValue,false)"></v-text-field>
+    </v-col> 
+  </v-col>
+</v-row>
+
+                            <v-card class="elevation-2 post-card">
+    
+    
+        <div class="post-header">
+  <a class="post-header-title font-weight-medium" href="/2020/07/29/C-OpenGL-1/">C++/OpenGL(1)</a>
+  <div class="post-header-meta">   
+    <span>
+      <v-icon color="">event</v-icon>
+      发布于:&nbsp;2020-07-29
+    </span>
+    <span>
+      <v-icon color="">event_available</v-icon>
+      更新于:&nbsp;2020-07-29
+    </span>
+    <span>
+      <v-icon color="">folder</v-icon>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">程序设计</a>
+    </span>
+    
+    <span>
+      <v-icon color="">visibility</v-icon>
+      阅读次数:&nbsp;<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+    </span>
+    
+  </div>
+</div>
+
+    
+    
+    
+    
+    <div class="post-content">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>在写这篇博客时，我也在学习OpenGL，本系列会频繁删改，若有鬼搐，纯属正常。<br>本系列暂时使用freeglut库和GLEW库，GLFW与GLAD暂不讨论。</p>
+</blockquote>
+<br>
+<br>
+<br>
+
+<h1 id="对OpenGL的一些说明"><a href="#对OpenGL的一些说明" class="headerlink" title="对OpenGL的一些说明"></a>对OpenGL的一些说明</h1><blockquote>
+<p>OpenGL并不是一个库或一个引擎，OpenGL是一系列底层API，由C语言实现。<br>开发者通常并不需要关心OpenGL的实现，因为这是显卡驱动的事情。</p>
+</blockquote>
+<br>
+<br>
+<br>
+
+<h1 id="准备你的OpenGL之旅"><a href="#准备你的OpenGL之旅" class="headerlink" title="准备你的OpenGL之旅"></a>准备你的OpenGL之旅</h1><p>打开你的编辑器，新建一个C++源文件，我这里命名为Main.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Main.cpp 程序的入口</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"hello world!"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在试添加一条#include预处理指令，就像这样。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Main.cpp 程序的入口</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;GL/gl.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"hello world!"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正常情况下，你因该不会看见那些烦人的红色波浪线。<br>但是如果你报错了，试试将”GL”改为小写。</p>
+<br>
+<br>
+
+<blockquote>
+<p>上述头文件正是OpenGL的头文件库，他是OpenGL世界中最原始，最难以驾驭的一个直接使用 gl.h 来进入OpenGL世界并不明智，我们会遇到跨平台，跨显卡，项目结构等等问题。<br>不过，我们可以站在巨人的肩膀上。</p>
+</blockquote>
+<br>
+<br>
+
+<h2 id="freeglut-amp-glew"><a href="#freeglut-amp-glew" class="headerlink" title="freeglut &amp; glew"></a>freeglut &amp; glew</h2><blockquote>
+<p>glut是一个第三方OpenGL库,意为 <em>OpenGL实用工具库</em>  ,他对gl.h进行了部分封装，主要负责窗口，而freeglut是glut的免费开源版本，考虑到glut库早已停止更新，我们使用了freeglut。<br>glew也是一个第三方OpenGL库，主要负责绘图，他使你的绘图代码能够跨平台。</p>
+</blockquote>
+<br>
+<br>
+
+<h2 id="安装freeglut"><a href="#安装freeglut" class="headerlink" title="安装freeglut"></a>安装freeglut</h2><blockquote>
+<p>？就几分钟百度的事，为什么要我写 （</p>
+</blockquote>
+<br>
+<br>
+
+<h2 id="安装glew"><a href="#安装glew" class="headerlink" title="安装glew"></a>安装glew</h2><blockquote>
+<p>同上</p>
+</blockquote>
+<br>
+<br>
+<br>
+
+<h1 id="摆脱黑框，拥抱更耗能的黑框"><a href="#摆脱黑框，拥抱更耗能的黑框" class="headerlink" title="摆脱黑框，拥抱更耗能的黑框"></a>摆脱黑框，拥抱更耗能的黑框</h1><blockquote>
+<p>没错，你的第一个OpenGL程序就是一个更加吃资源的黑框框，甚至比命令窗口还要简陋。<br>但是别担心，我们会让他变得丰富多彩的，现在只需要起个头。</p>
+</blockquote>
+<p>来认识几个函数。</p>
+<blockquote>
+<p><code>glutInit(&amp;argc,argv);</code></p>
+</blockquote>
+<p>这是 <strong>glut库的初始化函数</strong> ，在创建窗口之前，我们得先初始化控制窗口的glut。此函数传入的 <em>argc</em> 与 <em>argv</em> 是C++程序启动时从控制台接受的参数的个数与参数本身，他们的类型分别是 <em>int</em> 和 <em>char**</em> ，我们可以先忽略他们。如果你遇到了什么问题，可以看看本文末尾的完整代码。</p>
+<blockquote>
+<p><code>glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA);</code></p>
+</blockquote>
+<p>这个函数 <strong>指定了glut创建的窗口的显示模式</strong> ，他接受不定数量的宏定义参数（这些参数在 glut.h 里被定义）。我们在这里填写的 <em>GLUT_DOUBLE</em> 指使用 <a href="https://baike.baidu.com/item/%E5%8F%8C%E7%BC%93%E5%86%B2" target="_blank" rel="noopener">双缓冲</a> ， <em>GLUT_RGBA</em> 定义了窗口的色彩模式，RGBA分别表示 Red(红), Green(绿) ,Blue(蓝) ,至于A，他叫做Alpha(阿尔法)，你可以粗略理解为不透明度。这四个参数在渲染时会用到。</p>
+<blockquote>
+<p><code>glutInitWindowSize(800,600);</code></p>
+</blockquote>
+<p>这个函数 <strong>设置了glut创建的窗口的大小</strong> ，他接受两个int类型参数，分别是窗口的宽度（width）和高度（hight）,他们的单位是px（像素），使用上面的代码，我们将创建一个标准的4:3窗口。</p>
+<blockquote>
+<p><code>glutCreateWindow(&quot;Hello OpenGL!&quot;);</code></p>
+</blockquote>
+<p>这个函数 <strong>创建了窗口</strong> 没错！他创建了窗口！我们只需要为他接入一个 <em>const</em> <em>char</em> * 类型的字符串就能为他设置好标题。</p>
+<blockquote>
+<p><code>glutMainLoop();</code></p>
+</blockquote>
+<p>这个函数 <strong>使程序进入了消息循环</strong> ，这样才能保证窗体持续存在并接受和处理消息。需要注意的是这会阻塞所在线程，后续函数会在窗口关闭后执行。</p>
+<br>
+<br>
+
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>对于Linux的GCC/G++环境，使用以下指令</p>
+<blockquote>
+<p><code>$ g++ -o main.out main.cpp -lGL -lglut</code></p>
+</blockquote>
+<p>使用以下指令运行</p>
+<blockquote>
+<p><code>$ ./main.out</code></p>
+</blockquote>
+<hr>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><p>到这里你因该已经创建出了一个难看的巨大黑框框。<br>如果你遇到什么问题，可以看看这些代码。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Main.cpp 程序的入口</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iosteam&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;GL/glew.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;GL/freeglut.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//初始化glut</span></span><br><span class="line">    glutInit(&amp;argc,argv);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置glut显示模式</span></span><br><span class="line">    glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置窗口大小</span></span><br><span class="line">    glutInitWindowSize(WINDOW_WIDTH,WINDOW_HIGHT);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置窗口默认位置</span></span><br><span class="line">    glutInitWindowPosition(<span class="number">300</span>,<span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建窗体并设置标题EW</span></span><br><span class="line">    glutCreateWindow(<span class="string">"FREEGLUT &amp; GLEW Tutorial"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//进入主循环</span></span><br><span class="line">    glutMainLoop();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//以下内容在关闭窗口后执行</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+    <!--文末结束语-->
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;"> --- The End --- </div>
+    
+    <!--页脚广告-->
+    
+    <v-divider></v-divider>
+    
+    <div class="post-nav">             
+        
+            <v-btn text disabled></v-btn>
+        
+          
+            <v-btn text class="float-right font-weight-bold" href="/2020/07/28/hello-world/">      
+                Hello World
+                <v-icon>chevron_right</v-icon>
+            </v-btn>
+        
+    </div>
+</v-card>
+
+
+
+        
+                            <div id="mobile-footer" class="d-block d-md-none">
+                                <v-divider></v-divider>
+                                <div id="mobile-footer-content">
+                                    <span>Theme: <a href="https://github.com/kb1000fx/hexo-theme-insulin" target="_blank" rel="noopener">Insulin</a> &nbsp; Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></span><br>
+                                    <span> &copy; 2020 - 2020 ASKmenot</span>
+                                </div>
+                            </div>                   
+                        </v-col>                                            
+                    </v-row>
+                </v-container>
+            </v-content>
+        </v-app>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.2.30"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+
+
+
+</body>
+</html>
