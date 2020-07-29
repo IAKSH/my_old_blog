@@ -234,7 +234,7 @@
 <h1 id="准备你的OpenGL之旅"><a href="#准备你的OpenGL之旅" class="headerlink" title="准备你的OpenGL之旅"></a>准备你的OpenGL之旅</h1><p>打开你的编辑器，新建一个C++源文件，我这里命名为Main.cpp</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Main.cpp 程序的入口</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"hello world!"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>现在试添加一条#include预处理指令，就像这样。</p>
+<p>现在试试添加一条#include预处理指令，就像这样。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Main.cpp 程序的入口</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;GL/gl.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"hello world!"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>正常情况下，你因该不会看见那些烦人的红色波浪线。<br>但是如果你报错了，试试将”GL”改为小写。</p>
@@ -242,7 +242,7 @@
 <br>
 
 <blockquote>
-<p>上述头文件正是OpenGL的头文件库，他是OpenGL世界中最原始，最难以驾驭的一个直接使用 gl.h 来进入OpenGL世界并不明智，我们会遇到跨平台，跨显卡，项目结构等等问题。<br>不过，我们可以站在巨人的肩膀上。</p>
+<p>上述头文件正是OpenGL的头文件库，他是OpenGL世界中最原始，最难以驾驭的一个。直接使用 gl.h 来进入OpenGL世界并不明智，我们会遇到跨平台，跨显卡，项目结构等等问题。<br>不过，我们可以站在巨人的肩膀上。</p>
 </blockquote>
 <br>
 <br>
@@ -254,13 +254,13 @@
 <br>
 
 <h2 id="安装freeglut"><a href="#安装freeglut" class="headerlink" title="安装freeglut"></a>安装freeglut</h2><blockquote>
-<p>？就几分钟百度的事，为什么要我写 （</p>
+<p>去问度娘</p>
 </blockquote>
 <br>
 <br>
 
 <h2 id="安装glew"><a href="#安装glew" class="headerlink" title="安装glew"></a>安装glew</h2><blockquote>
-<p>同上</p>
+<p>去问谷哥</p>
 </blockquote>
 <br>
 <br>
