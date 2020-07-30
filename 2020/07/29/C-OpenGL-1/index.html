@@ -197,7 +197,7 @@
     </span>
     <span>
       <v-icon color="">event_available</v-icon>
-      更新于:&nbsp;2020-07-29
+      更新于:&nbsp;2020-07-30
     </span>
     <span>
       <v-icon color="">folder</v-icon>
@@ -304,6 +304,7 @@
 <hr>
 <h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><p>到这里你因该已经创建出了一个难看的巨大黑框框。<br>如果你遇到什么问题，可以看看这些代码。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Main.cpp 程序的入口</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iosteam&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;GL/glew.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;GL/freeglut.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//初始化glut</span></span><br><span class="line">    glutInit(&amp;argc,argv);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置glut显示模式</span></span><br><span class="line">    glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置窗口大小</span></span><br><span class="line">    glutInitWindowSize(WINDOW_WIDTH,WINDOW_HIGHT);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置窗口默认位置</span></span><br><span class="line">    glutInitWindowPosition(<span class="number">300</span>,<span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建窗体并设置标题EW</span></span><br><span class="line">    glutCreateWindow(<span class="string">"FREEGLUT &amp; GLEW Tutorial"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//进入主循环</span></span><br><span class="line">    glutMainLoop();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//以下内容在关闭窗口后执行</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
     <!--文末结束语-->
     
@@ -315,7 +316,10 @@
     
     <div class="post-nav">             
         
-            <v-btn text disabled></v-btn>
+            <v-btn text class="font-weight-bold" href="/2020/07/30/Vim%E5%88%9D%E6%8E%A2/">
+                <v-icon>chevron_left</v-icon>
+                Vim初探
+            </v-btn> 
         
           
             <v-btn text class="float-right font-weight-bold" href="/2020/07/28/hello-world/">      

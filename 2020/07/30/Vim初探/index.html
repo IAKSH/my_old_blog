@@ -38,8 +38,8 @@
     
     
     <title>
-          
-            人生苦短 | 来日方长
+        
+            Vim初探 | 人生苦短 | 来日方长
         
     </title>
     
@@ -94,45 +94,12 @@
     </v-list>
     <v-divider></v-divider>
     
-        <v-list id="sub-menu" class="font-weight-medium" dense>
-            
-                
-                    <v-list-item href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" link>
-                        <v-badge :value="menuHover" transition="slide-y-transition" inline content="1" >
-                            <v-hover v-model="menuHover">
-                                <v-list-item-content>
-                                    <span>程序设计</span>                              
-                                </v-list-item-content>                           
-                            </v-hover>
-                        </v-badge>
-                    </v-list-item>
-                
-            
-                
-                    <v-list-item href="/categories/%E5%B7%A5%E5%85%B7%E5%A4%87%E5%BF%98/" link>
-                        <v-badge :value="menuHover" transition="slide-y-transition" inline content="1" >
-                            <v-hover v-model="menuHover">
-                                <v-list-item-content>
-                                    <span>工具备忘</span>                              
-                                </v-list-item-content>                           
-                            </v-hover>
-                        </v-badge>
-                    </v-list-item>
-                
-            
-                
-                    <v-list-item href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" link>
-                        <v-badge :value="menuHover" transition="slide-y-transition" inline content="1" >
-                            <v-hover v-model="menuHover">
-                                <v-list-item-content>
-                                    <span>碎碎念</span>                              
-                                </v-list-item-content>                           
-                            </v-hover>
-                        </v-badge>
-                    </v-list-item>
-                
-            
-        </v-list>    
+        <div class="post-toc">
+            <a href="/2020/07/30/Vim%E5%88%9D%E6%8E%A2/" class="toc-header">文章目录</a>
+            <div class="toc-content">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vim三种模式"><span class="toc-number">1.</span> <span class="toc-text">Vim三种模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vim的基础命令"><span class="toc-number">2.</span> <span class="toc-text">Vim的基础命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vim的一些坑"><span class="toc-number">3.</span> <span class="toc-text">Vim的一些坑</span></a></li></ol>
+            </div>
+        </div>
     
 
     <div id="footer">
@@ -218,29 +185,204 @@
   </v-col>
 </v-row>
 
-                            <v-card class="elevation-2 index-card">
-    <v-timeline class="timeline" dense>
-        <v-timeline-item class="timeline-header" color="secondary lighten-2">
-            <span class="timeline-title">程序设计</span>
-            <span class="timeline-subtitle">分类</span>
-        </v-timeline-item>
+                            <v-card class="elevation-2 post-card">
+    
+    
+        <div class="post-header">
+  <a class="post-header-title font-weight-medium" href="/2020/07/30/Vim%E5%88%9D%E6%8E%A2/">Vim初探</a>
+  <div class="post-header-meta">   
+    <span>
+      <v-icon color="">event</v-icon>
+      发布于:&nbsp;2020-07-30
+    </span>
+    <span>
+      <v-icon color="">event_available</v-icon>
+      更新于:&nbsp;2020-07-30
+    </span>
+    <span>
+      <v-icon color="">folder</v-icon>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%A4%87%E5%BF%98/">工具备忘</a>
+    </span>
+    
+    <span>
+      <v-icon color="">visibility</v-icon>
+      阅读次数:&nbsp;<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+    </span>
+    
+  </div>
+</div>
+
+    
+    
+    
+    
+    <div class="post-content">
+        <p><em>前景提要:</em></p>
+<br>
+
+<p>我先后看了很多Vim教程，听他们扯了一对没用的。</p>
+<p>但是，好像有什么不对劲(?)</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2014/07/vim-vi-workmodel.png" alt="avatar"></p>
+<p>几乎每个教程都直接抬上了这张 <strong>误导性极强</strong> 的图。</p>
+<br>
+<br>
+<br>
+
+<blockquote>
+<p>如果你还不知道什么是Vim，你可以点击<a href="https://baike.baidu.com/item/VIM/60410?fr=aladdin" target="_blank" rel="noopener">这里</a></p>
+</blockquote>
+<br>
+<br>
+
+<hr>
+<br>
+<br>
+
+<h1 id="Vim三种模式"><a href="#Vim三种模式" class="headerlink" title="Vim三种模式"></a>Vim三种模式</h1><br>
+
+<ul>
+<li><strong>命令模式</strong></li>
+</ul>
+<br>
+
+<p> 这是你在Vim中接触到的第一个模式。</p>
+<p><img src="../photos/Vim1.png" alt="avatar"></p>
+<p>在这个模式里，你无法进行输入/删除，但你依然能够使用方向键来移动你的游标。<br>不得不提的是，大部分时候我们用到的命令，都不是在命令模式下输入的。<br>命令模式更像是一个安全的，只读模式。</p>
+<br>
+<br>
+
+<ul>
+<li><strong>输入模式</strong></li>
+</ul>
+<br>
+
+<p>在命令模式下，按下 <strong>i</strong> 键进入输入模式（注意这里会有游标位移，以后再讨论）<br>在此模式下，你可以任意删改文档内容。</p>
+<p><img src="../photos/Vim2.png" alt="avatar"></p>
+<p>如果你想返回命令模式，按下 <strong>ESC</strong> </p>
+<br>
+<br>
+
+<ul>
+<li><strong>底线命令模式</strong></li>
+</ul>
+<br>
+
+<p>命令模式下，按下 <strong>:</strong> <em>(即shift+;)</em> 进入底线命令模式。<br>在此模式下，你因该能看见这样的一行：</p>
+<p><img src="../photos/Vim3.png" alt="avatar"></p>
+<p>这里才是我们输入命令的地方。</p>
+<br>
+<br>
+
+<hr>
+<br>
+<br>
+
+<h1 id="Vim的基础命令"><a href="#Vim的基础命令" class="headerlink" title="Vim的基础命令"></a>Vim的基础命令</h1><br>
+
+<blockquote>
+<p>注意！此处的命令应当在 <strong>底线命令模式</strong> 下输入。</p>
+</blockquote>
+<br>
+
+<ul>
+<li><strong>q</strong><br>退出Vim。</li>
+</ul>
+<br>
+
+<ul>
+<li><strong>q!</strong><br>强制退出Vim且不保存。</li>
+</ul>
+<br>
+
+<ul>
+<li><strong>wq</strong><br>保存并退出Vim。</li>
+</ul>
+<br>
+
+<ul>
+<li><strong>wq!</strong><br>强制保存后退出Vim。</li>
+</ul>
+<br>
+
+<ul>
+<li><strong>w!</strong><br>当文件为<strong>只读</strong> 时，强制保存。</li>
+</ul>
+<br>
+
+<ul>
+<li><strong>w [新文件名]</strong><br>将打开的文档另存为一个制定名称的新文件</li>
+</ul>
+<br>
+
+<ul>
+<li><strong>r [导入的文件名]</strong><br>将制定文件的内容添加到目前游标所在行的后面。</li>
+</ul>
+<br>
+
+<ul>
+<li><strong>! [命令]</strong><br>暂时离开Vim，到命令行模式下执行输入的命令</li>
+</ul>
+<br>
+<br>
+
+<hr>
+<br>
+<br>
+
+<h1 id="Vim的一些坑"><a href="#Vim的一些坑" class="headerlink" title="Vim的一些坑"></a>Vim的一些坑</h1><br>
+
+<ul>
+<li><strong>Ctrl + S 后无法动弹</strong><br>
+很多从Windows过来的人几乎都会遇上这个问题。
+在大多数软件下，Ctrl+S 几乎都是保存快捷键。但在Vim下，Ctrl + S 是忽略之后的输入。
+使用 **Ctrl+Q** 即可解除。
+
+</li>
+</ul>
+<br>
+
+<ul>
+<li><strong>无法进入底线命令模式</strong><br>
+这种情况，你可以试着检查一下自己的输入法。
+切换到英文就行了。
+
+</li>
+</ul>
+<br>
+
+<ul>
+<li><strong>权限问题</strong><br>
+有时候你会遇到文件无法保存之类的问题，通常是由于此文件在系统目录下。
+如果你**清楚自己在改些什么**，你可以尝试
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo vim [你的文件名]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+    </div>
+    <!--文末结束语-->
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;"> --- The End --- </div>
+    
+    <!--页脚广告-->
+    
+    <v-divider></v-divider>
+    
+    <div class="post-nav">             
         
-            <v-timeline-item fill-dot small color="secondary lighten-2">
-                <div class="timeline-item-post d-none d-md-block">
-                    <span class="timeline-item-time">2020.07.29</span>
-                    <a href="/2020/07/29/C-OpenGL-1/" class="timeline-item-title">C++/OpenGL(1)</a>
-                </div>
-                <div class="timeline-item-post-mobile d-block d-md-none">
-                    <span class="timeline-item-time">2020.07.29</span><br>
-                    <a href="/2020/07/29/C-OpenGL-1/" class="timeline-item-title">C++/OpenGL(1)</a>
-                </div>
-                <v-divider></v-divider>
-            </v-timeline-item>
+            <v-btn text disabled></v-btn>
         
-    </v-timeline>
+          
+            <v-btn text class="float-right font-weight-bold" href="/2020/07/29/C-OpenGL-1/">      
+                C++/OpenGL(1)
+                <v-icon>chevron_right</v-icon>
+            </v-btn>
+        
+    </div>
 </v-card>
 
-         
+
+
+        
                             <div id="mobile-footer" class="d-block d-md-none">
                                 <v-divider></v-divider>
                                 <div id="mobile-footer-content">
@@ -267,6 +409,12 @@
 
 
 
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
 
 
 

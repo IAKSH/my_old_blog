@@ -109,6 +109,18 @@
                 
             
                 
+                    <v-list-item href="/categories/%E5%B7%A5%E5%85%B7%E5%A4%87%E5%BF%98/" link>
+                        <v-badge :value="menuHover" transition="slide-y-transition" inline content="1" >
+                            <v-hover v-model="menuHover">
+                                <v-list-item-content>
+                                    <span>工具备忘</span>                              
+                                </v-list-item-content>                           
+                            </v-hover>
+                        </v-badge>
+                    </v-list-item>
+                
+            
+                
                     <v-list-item href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" link>
                         <v-badge :value="menuHover" transition="slide-y-transition" inline content="1" >
                             <v-hover v-model="menuHover">
@@ -229,6 +241,22 @@
                         <v-hover v-model="tagHover">
                             <v-chip color="secondary" class="tags-chip font-weight-medium">
                                 <a href="/tags/OpenGL/">OpenGL</a>
+                            </v-chip>
+                        </v-hover>
+                    </v-badge>
+                
+                    <v-badge :value="tagHover" transition="slide-x-transition" inline content="1" >
+                        <v-hover v-model="tagHover">
+                            <v-chip color="secondary" class="tags-chip font-weight-medium">
+                                <a href="/tags/Vi-Vim/">Vi/Vim</a>
+                            </v-chip>
+                        </v-hover>
+                    </v-badge>
+                
+                    <v-badge :value="tagHover" transition="slide-x-transition" inline content="1" >
+                        <v-hover v-model="tagHover">
+                            <v-chip color="secondary" class="tags-chip font-weight-medium">
+                                <a href="/tags/Linux/">Linux</a>
                             </v-chip>
                         </v-hover>
                     </v-badge>
