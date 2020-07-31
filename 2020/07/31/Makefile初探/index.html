@@ -227,6 +227,13 @@
 <h1 id="我们为什么需要Makefile"><a href="#我们为什么需要Makefile" class="headerlink" title="我们为什么需要Makefile"></a>我们为什么需要Makefile</h1><br>
 
 <p>解决GCC/G++命令操作的繁琐问题，提高工作效率。</p>
+<br>
+<br>
+
+<hr>
+<br>
+<br>
+
 <h1 id="一个最基本的Makefile实例"><a href="#一个最基本的Makefile实例" class="headerlink" title="一个最基本的Makefile实例"></a>一个最基本的Makefile实例</h1><br>
 
 <p>首先，我们需要一些源码文件，这里提供一些示例。</p>
@@ -264,6 +271,13 @@
 </ul>
 <p>当make工具运行到main项目时，会根据后面写的组件（此处分别是main.o和hello.o）在目录里寻找这些组件。<br>当无法在目录里找到这些组件时，make工具就会在Makefile上下文里寻找同名项目，并优先运行这些项目。<br>比如在上面的例子里，make工具无法在目录里找到main.o和hello.o,但是在上下文里找到了同名项目，便优先运行了这些项目，生成了main.o与hello.o</p>
 <p>再说说项目内容。<br>你因该已经发现了，每个项目的下一行都写了Shell命令（当在windows下，应用CMD命令）<br>这是此项目的具体实现，如果你会用gcc，理解这些不难。但应当注意，在缩进时，<strong>不要按空格</strong> ，请 <strong>直接使用TAB</strong></p>
+<br>
+<br>
+
+<hr>
+<br>
+<br>
+
 <h1 id="Makefile的基本语法"><a href="#Makefile的基本语法" class="headerlink" title="Makefile的基本语法"></a>Makefile的基本语法</h1><br>
 
 <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>Makefile中所有变量都是字符串，概念上类似于C/C++中的宏定义。<br>比如下面的语句定义了一个标识符为 <em>objects</em> 的变量，其内容为等号后的所有字符</p>
