@@ -110,7 +110,7 @@
             
                 
                     <v-list-item href="/categories/%E5%B7%A5%E5%85%B7%E5%A4%87%E5%BF%98/" link>
-                        <v-badge :value="menuHover" transition="slide-y-transition" inline content="1" >
+                        <v-badge :value="menuHover" transition="slide-y-transition" inline content="2" >
                             <v-hover v-model="menuHover">
                                 <v-list-item-content>
                                     <span>工具备忘</span>                              
@@ -229,7 +229,7 @@
             </div>
             <div class="tags-contain">
                 
-                    <v-badge :value="tagHover" transition="slide-x-transition" inline content="1" >
+                    <v-badge :value="tagHover" transition="slide-x-transition" inline content="2" >
                         <v-hover v-model="tagHover">
                             <v-chip color="secondary" class="tags-chip font-weight-medium">
                                 <a href="/tags/C/">C++</a>
@@ -241,6 +241,14 @@
                         <v-hover v-model="tagHover">
                             <v-chip color="secondary" class="tags-chip font-weight-medium">
                                 <a href="/tags/OpenGL/">OpenGL</a>
+                            </v-chip>
+                        </v-hover>
+                    </v-badge>
+                
+                    <v-badge :value="tagHover" transition="slide-x-transition" inline content="1" >
+                        <v-hover v-model="tagHover">
+                            <v-chip color="secondary" class="tags-chip font-weight-medium">
+                                <a href="/tags/Makefile/">Makefile</a>
                             </v-chip>
                         </v-hover>
                     </v-badge>
